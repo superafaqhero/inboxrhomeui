@@ -10,12 +10,22 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/svg+xml" href="logo.svg" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="preloader-content">
+        <img class="preloader-logo" src="logo.svg" alt="" />
+        <span class="preloader-text">Initializing Node</span>
+      </div>
+    </div>
     <header>
       <div class="container nav">
-        <div class="logo">INBOXR PRO</div>
+        <div class="logo">
+          <img class="logo-mark" src="logo.svg" alt="Inboxr Pro logo" />
+          INBOXR PRO
+        </div>
         <nav class="nav-links">
           <a href="index.html#protocol">The Protocol</a>
           <a href="index.html#math">The Math</a>
@@ -76,5 +86,10 @@
         </div>
       </div>
     </footer>
+    <script>
+      window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+      });
+    </script>
   </body>
 </html>
