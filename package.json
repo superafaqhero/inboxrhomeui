@@ -1,12 +1,12 @@
 {
-  "name": "inboxr-pro:-the-titan-protocol",
+  "name": "inboxr-pro-the-titan-protocol",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0 --port 5173",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --host 0.0.0.0 --port 4173"
   },
   "dependencies": {
     "react": "19.0.0",
