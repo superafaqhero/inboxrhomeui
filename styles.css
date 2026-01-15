@@ -92,14 +92,6 @@ header {
   letter-spacing: 0.2em;
   font-weight: 700;
   font-size: 1.1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo-mark {
-  width: 28px;
-  height: 28px;
 }
 
 .nav-links {
@@ -423,6 +415,15 @@ footer .links {
   gap: 20px;
 }
 
+.embed-frame iframe {
+  width: 100%;
+  border: 0;
+}
+
+.form-embed iframe {
+  min-height: 640px;
+}
+
 .preloader {
   position: fixed;
   inset: 0;
@@ -438,12 +439,6 @@ footer .links {
   gap: 16px;
   justify-items: center;
   text-align: center;
-}
-
-.preloader-logo {
-  width: 96px;
-  height: 96px;
-  animation: glow 2.4s ease-in-out infinite;
 }
 
 .preloader-text {
@@ -474,18 +469,6 @@ body.loaded .preloader {
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes glow {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 6px rgba(0, 255, 65, 0.4));
-    transform: scale(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 16px rgba(0, 255, 65, 0.8));
-    transform: scale(1.05);
   }
 }
 
