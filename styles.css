@@ -1,0 +1,511 @@
+:root {
+  color-scheme: dark;
+  --bg-deep: #050505;
+  --bg-charcoal: #121212;
+  --terminal-green: #00ff41;
+  --cyber-purple: #bc13fe;
+  --signal-red: #ff0033;
+  --frost: rgba(17, 17, 17, 0.7);
+  --border: rgba(255, 255, 255, 0.08);
+  --text-muted: rgba(255, 255, 255, 0.65);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "JetBrains Mono", "Roboto Mono", monospace;
+  background: radial-gradient(circle at top, #141414, var(--bg-deep));
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.container.narrow {
+  width: min(920px, 92%);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 24px 0;
+  gap: 16px;
+}
+
+.logo {
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-mark {
+  width: 28px;
+  height: 28px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.cta {
+  justify-self: end;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 26px;
+  border-radius: 0;
+  background: var(--terminal-green);
+  color: #050505;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: none;
+  box-shadow: 0 0 12px rgba(0, 255, 65, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(0, 255, 65, 0.7);
+}
+
+.section {
+  padding: 88px 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+  gap: 48px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1.2;
+}
+
+.hero p {
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+.hero .promise {
+  margin: 24px 0;
+  font-weight: 600;
+}
+
+.status {
+  margin-top: 18px;
+  color: var(--terminal-green);
+  font-weight: 600;
+}
+
+.brain {
+  position: relative;
+  width: min(380px, 100%);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 65, 0.25) 0%,
+    rgba(0, 255, 65, 0.05) 55%,
+    transparent 70%
+  );
+  display: grid;
+  place-items: center;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.brain-core {
+  width: 140px;
+  height: 140px;
+  border-radius: 24px;
+  background: rgba(7, 7, 7, 0.8);
+  border: 1px solid rgba(0, 255, 65, 0.5);
+  box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+}
+
+.orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  animation: spin 20s linear infinite;
+}
+
+.satellite {
+  position: absolute;
+  padding: 6px 10px;
+  font-size: 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.8);
+  color: #fff;
+}
+
+.satellite:nth-child(1) {
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.satellite:nth-child(2) {
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.satellite:nth-child(3) {
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.satellite:nth-child(4) {
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.satellite:nth-child(5) {
+  top: 18%;
+  right: 22%;
+}
+
+.glass {
+  background: var(--frost);
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  border-radius: 18px;
+  padding: 28px;
+  backdrop-filter: blur(18px);
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.problem .glass {
+  border-color: rgba(255, 0, 51, 0.4);
+}
+
+.problem .contrast {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.problem .rental {
+  border: 1px solid rgba(255, 0, 51, 0.6);
+  background: rgba(50, 0, 10, 0.65);
+  box-shadow: 0 0 20px rgba(255, 0, 51, 0.3);
+}
+
+.problem .sovereign {
+  border: 1px solid rgba(0, 255, 65, 0.6);
+  background: rgba(0, 25, 10, 0.65);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+.card-title {
+  font-family: "Orbitron", sans-serif;
+  color: var(--terminal-green);
+  margin-bottom: 12px;
+}
+
+.card-title.purple {
+  color: var(--cyber-purple);
+}
+
+.pillars .icon {
+  font-size: 1.2rem;
+  color: var(--cyber-purple);
+  margin-bottom: 12px;
+}
+
+.methodology .steps {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.velocity {
+  margin-top: 28px;
+  padding: 20px;
+  border-left: 2px solid var(--terminal-green);
+  background: rgba(0, 255, 65, 0.05);
+}
+
+.pricing {
+  display: grid;
+  gap: 24px;
+}
+
+.pricing-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 32px;
+  border-radius: 18px;
+  background: rgba(12, 12, 12, 0.9);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.pricing-card.highlight {
+  border-color: var(--terminal-green);
+  box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
+}
+
+.pricing-card h3 {
+  margin-bottom: 8px;
+}
+
+.pricing-card ul {
+  margin-top: 16px;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.pricing-card ul li::before {
+  content: "[x]";
+  margin-right: 8px;
+  color: var(--terminal-green);
+}
+
+.comparison table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+}
+
+.comparison th,
+.comparison td {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.comparison th {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.comparison .left {
+  background: rgba(255, 0, 51, 0.1);
+}
+
+.comparison .right {
+  background: rgba(0, 255, 65, 0.1);
+}
+
+.faq {
+  display: grid;
+  gap: 16px;
+}
+
+details {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: rgba(11, 11, 11, 0.8);
+}
+
+details summary {
+  cursor: pointer;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.05em;
+}
+
+footer {
+  padding: 36px 0 60px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+footer .links {
+  margin-top: 12px;
+  display: flex;
+  gap: 20px;
+}
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.96);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.preloader-content {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+  text-align: center;
+}
+
+.preloader-logo {
+  width: 96px;
+  height: 96px;
+  animation: glow 2.4s ease-in-out infinite;
+}
+
+.preloader-text {
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.2em;
+  color: var(--terminal-green);
+  font-size: 0.85rem;
+}
+
+body.loaded .preloader {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(0, 255, 65, 0.8);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px rgba(0, 255, 65, 0.4));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(0, 255, 65, 0.8));
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 900px) {
+  .nav {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .cta {
+    justify-self: center;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  footer .links {
+    flex-direction: column;
+  }
+}
